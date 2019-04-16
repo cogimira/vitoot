@@ -1,2 +1,2 @@
 # vitoot
-learn,note,blog,code,etc
+learn,notes,blog,code,etc

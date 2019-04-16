@@ -1,0 +1,19 @@
+{
+  "name": "vitoot",
+  "version": "1.0.0",
+  "description": "learn,notes,example code,lib etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cogimira/vitoot.git"
+  },
+  "author": "wanghuaiyao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cogimira/vitoot/issues"
+  },
+  "homepage": "https://github.com/cogimira/vitoot#readme"
+}
