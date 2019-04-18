@@ -14,7 +14,13 @@ function produceIntAry(len, min, max) {
     return resAry;
 }
 
+function produceSortedAry(num) {
+    var ary = produceIntAry(num);
+    return ary.sort();
+}
+
 
 module.exports = {
-    produceIntAry: produceIntAry
+    produceIntAry: produceIntAry,
+    produceSortedAry:produceSortedAry
 }
