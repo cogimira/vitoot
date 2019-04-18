@@ -1,4 +1,4 @@
-const producer = require("../../dataproducer");
+const producer = require("../dataproducer");
 
 //simple insert sort
 function insertSort(ary) {
