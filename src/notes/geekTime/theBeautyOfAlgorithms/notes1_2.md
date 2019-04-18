@@ -14,8 +14,6 @@
 
 3.常用算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、分治算法、回溯算法、动态规划、字符串匹配算法
 
-极客时间版权所有: https://time.geekbang.org/column/article/40011
-
 ***
 
-![blockchain](../static/img/suanfatupu.jpg "区块链")
+![blockchain](../static/img/suanfatupu.jpg "算法图谱")
