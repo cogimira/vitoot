@@ -14,6 +14,7 @@ function produceIntAry(len, min, max) {
     return resAry;
 }
 
+// 产生特定数字的已经排序好的数组
 function produceSortedAry(num) {
     var ary = produceIntAry(num);
     return ary.sort();

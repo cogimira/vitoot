@@ -8,7 +8,7 @@
 
 > shellSort.js 希尔排序 c
 
-> mergeSort.js 归并排序
+> mergeSort.js 归并排序 c
 
 > quickSort.js 快速排序
 

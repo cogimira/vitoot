@@ -1,5 +1,6 @@
-//快速排序
+const producer = require("../dataProducer");
 
-function quickSort() {
+//快速排序
+function quickSort(ary) {
     
 }
