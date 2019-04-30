@@ -88,15 +88,67 @@ function dblist2Ary(header, data) {
 }
 
 // proSingleDirectList(10);
-var dl = proDoubleDirectList(12);
-var dataD = [];
-dblist2Ary(dl, dataD);
-console.log(dataD);
+// var dl = proDoubleDirectList(12);
+// var dataD = [];
+// dblist2Ary(dl, dataD);
+// console.log(dataD);
+
+// 单向环形链表
+function singleDrectCircleList(value) {
+    this.head = false;  // 环形链表初始化的时候设置为头
+    this.value = value;
+    this.next = null;
+}
+singleDrectCircleList.prototype.addNode = function addNode(value) {
+    // 如果下一个节点是头部节点 说明到了链表的结尾
+    if( this.next.head) {
+        var node = new singleDrectCircleList(value);
+        node.next = this.next;
+        this.next = node;
+    } else {
+        this.next.addNode(value);
+    }
+}
+// 将此节点设置为头部节点
+singleDrectCircleList.prototype.initHead = function initHead() {
+    this.head = true;
+    this.next = this;
+}
+
+// 产生一个环形链表
+function proSingleDrectCircleList(num) {
+    var testAry = aryProducer.produceSortedAry(num);
+    var header = new singleDrectCircleList(testAry[0]);
+    header.initHead();
+    for(var i = 1; i < testAry.length; i++) {
+        header.addNode(testAry[i]);
+    }
+    return header;
+}
+
+// 测试环形链表 打印
+var data = [];
+function tcdcl(head) {
+    data.push(head.value);
+    if(!head.next.head) {
+        cdcl(head.next);
+    }else {
+        data.push(head.value + " next node is head value >>");
+        data.push(head.next.value);
+    }
+}
+var cdl = proSingleDrectCircleList(5);
+tcdcl(cdl);
+console.log(data);
+
+
+
 
 // exports
 module.exports = {
-    proSingleDirectList: proSingleDirectList,
-    proDoubleDirectList:proDoubleDirectList,
+    proSingleDirectList: proSingleDirectList, // 单项链表
+    proDoubleDirectList:proDoubleDirectList, // 双向链表
+    proSingleDrectCircleList:proSingleDrectCircleList, // 单向环形链表
     list2Ary:list2Ary,
     dblist2Ary:dblist2Ary
 }
