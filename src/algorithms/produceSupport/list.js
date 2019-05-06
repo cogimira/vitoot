@@ -98,6 +98,7 @@ function singleDrectCircleList(value) {
     this.head = false;  // 环形链表初始化的时候设置为头
     this.value = value;
     this.next = null;
+
 }
 singleDrectCircleList.prototype.addNode = function addNode(value) {
     // 如果下一个节点是头部节点 说明到了链表的结尾
@@ -127,19 +128,90 @@ function proSingleDrectCircleList(num) {
 }
 
 // 测试环形链表 打印
+// var data = [];
+// function tcdcl(head) {
+//     data.push(head.value);
+//     if(!head.next.head) {
+//         cdcl(head.next);
+//     }else {
+//         data.push(head.value + " next node is head value >>");
+//         data.push(head.next.value);
+//     }
+// }
+// 循环单向链表测试
+// var cdl = proSingleDrectCircleList(5);
+// tcdcl(cdl);
+// console.log(data);
+
+// 双向循环链表
+function doubleDirectCircleList(value) {
+    this.value = value;
+    this.head = false;
+    this.next = null;
+    this.pre = null;
+}
+
+doubleDirectCircleList.prototype.initHead = function () {
+    this.head = true;
+    this.next = this;
+    this.pre = this;
+}
+
+doubleDirectCircleList.prototype.addNode = function (value) {
+    // 如果下一个是头节点，说明到了链表的尾部
+    if(this.next.head) {
+        var node = new doubleDirectCircleList(value);
+        var head = this.next;
+        this.next = node;
+        node.pre = this;
+        node.next = head;
+        head.pre = node;
+    } else {
+        this.next.addNode(value);
+    }
+}
+
+function proDoubleDirectCircleList(num) {
+    var testAry = aryProducer.produceIntAry(num);
+    var header = new doubleDirectCircleList(testAry[0]);
+    header.initHead();
+    for(var i = 1; i < testAry.length; i++) {
+        header.addNode(testAry[i]);
+    }
+    return header;
+}
+
+// 双向循环链表测试
 var data = [];
-function tcdcl(head) {
+var data2 = [];
+function tddcl(head){
+    // var head = proDoubleDirectCircleList(5);
     data.push(head.value);
     if(!head.next.head) {
-        cdcl(head.next);
+        tddcl(head.next);
     }else {
         data.push(head.value + " next node is head value >>");
         data.push(head.next.value);
     }
 }
-var cdl = proSingleDrectCircleList(5);
-tcdcl(cdl);
+function tddcl2(head){
+    // var head = proDoubleDirectCircleList(5);
+    data2.push(head.value);
+    if(!head.pre.head) {
+        tddcl2(head.pre);
+    }else {
+        data2.push(head.value + " pre node is head value >>");
+        data2.push(head.pre.value);
+    }
+}
+
+var head = proDoubleDirectCircleList(5);
+tddcl(head);
+tddcl2(head);
 console.log(data);
+console.log(data2);
+
+
 
 
 
