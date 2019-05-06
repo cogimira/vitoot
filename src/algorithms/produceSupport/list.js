@@ -221,6 +221,7 @@ module.exports = {
     proSingleDirectList: proSingleDirectList, // 单项链表
     proDoubleDirectList:proDoubleDirectList, // 双向链表
     proSingleDrectCircleList:proSingleDrectCircleList, // 单向环形链表
+    proDoubleDirectCircleList:proDoubleDirectCircleList, 
     list2Ary:list2Ary,
     dblist2Ary:dblist2Ary
 }
