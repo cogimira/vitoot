@@ -112,10 +112,10 @@ function swap(items, firstIndex, secondIndex){
 }
 
 
-var aryToSort = producer.produceIntAry(12);
-console.log(aryToSort);
-var res = quickSort(aryToSort, 0, 11);
-console.log(res);
+// var aryToSort = producer.produceIntAry(12);
+// console.log(aryToSort);
+// var res = quickSort(aryToSort, 0, 11);
+// console.log(res);
 
 // 13*, 92, 63, 84, 25, 16, 97, 87#, 33*
 // 13, 92*, 63, 84, 25, 16, 97, 87#, 33*
@@ -126,3 +126,5 @@ console.log(res);
 // 13, 33, 63, 84, 25, 16*, 97*, 87#, 92
 // 13, 33, 63, 84, 25, 16, 97**, 87#, 92
 // 13, 33, 63, 84, 25, 16, 87!, 97, 92
+
+// 利用快速排序找到第k大的元素
