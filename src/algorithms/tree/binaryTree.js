@@ -1,4 +1,9 @@
 const producer = require("../dataProducer");
+
+// 前序遍历：根结点 ---> 左子树 ---> 右子树
+// 中序遍历：左子树---> 根结点 ---> 右子树
+// 后序遍历：左子树 ---> 右子树 ---> 根结点
+
 // 二叉树
 function binaryTree(value) {
     this.value = value;
@@ -52,9 +57,39 @@ binaryTree.prototype.postOrder = function (root) {
     this.preOrder(root.right);
 }
 
-// 深度优先搜索
+// 深度优先搜索 利用栈数据结构
+binaryTree.prototype.depthSearch = function () {
+    var stack = [];
+    stack.push(this);
+    while(stack.length) {
+        var nodeTop = stack[stack.length -1];
+        console.log(nodeTop.value);
+        stack.pop();
+        if(nodeTop.left) {
+            stack.push(nodeTop.left);
+        }
+        if(nodeTop.right) {
+            stack.push(nodeTop.right);
+        }
+    }
+}
 
-// 广度优先搜索
+// 广度优先搜索 利用队列数据结构
+binaryTree.prototype.breadSearch = function () {
+    var queue = [];
+    queue.push(this);
+    while(queue.length) {
+        var head = queue.shift();
+        console.log(head.value);
+        if(head.left) {
+            queue.push(head.left);
+        }
+        if(head.right) {
+            queue.push(head.right);
+        }
+    }
+
+};
 
 var testary = producer.produceIntAry(20);
 var root = new binaryTree(testary[0]);
@@ -65,4 +100,3 @@ for(var i = 1; i < testary.length; i++) {
 
 
 root.postOrder(root);
-
