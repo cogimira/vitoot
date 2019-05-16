@@ -92,3 +92,61 @@ expr 和 term 分别表示两个不同的优先级，用factor来生成基本的
 
 
 ## 练习
+
+> 1.中缀表达式翻译成前缀表达式
+
+    1.1:中缀表达式语法
+
+    expr > expr + term
+    expr > expr - term
+    expr > term
+    term > term * factor
+    term > term / factor
+    term > factor
+    factor > digit | (exper)
+
+    1.2.翻译语法
+
+    expr > {print("+")} expr1 + term | 
+           {print("-")} expr1 + term |
+           term
+    term > {print("*")} term * factor |
+           {print("/")} term / factor |
+           factor
+    factor > {print(digit)} digit |
+             (exper)
+
+
+
+
+
+> 2.后缀表达式翻译成中缀表达式
+
+    2.1: 后缀表达式语法
+
+    expr > expr expr +
+    expr > expr expr -
+    expr > expr expr *
+    expr > expr expr /
+    expr > digit
+
+    2.2: 语法制导翻译语法
+
+    expr > expr {print("+")} expr +
+    expr > expr {print("-")} expr -
+    expr > {print("(")} expr {print(")*(")} expr {print(")")} *
+    expr > {print("(")} expr {print(")/(")} expr {print(")")} /
+    expr > {print(digit)} digit
+
+
+3.整数翻译成罗马数字
+4.罗马数字翻译成整数
+
+> 5.后缀翻译成前缀表达式
+
+    expr -> expr expr op | digit
+
+    expr -> {print(op)} expr expr op | digit {print(digit)}
+
+***
+
