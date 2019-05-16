@@ -4,7 +4,7 @@
 
 #### 分层架构
 
-![blockchain](static/img/layerarcDDD.jpg "算法图谱")
+![blockchain](static/img/layerarc.jpg "算法图谱")
 
     1.分层架构被认为是所有架构的始祖
     2.每一层只和下面的一层发生耦合(严格分层架构)
